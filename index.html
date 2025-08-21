@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>أحبك سارة</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#fff7f9; --card:#ffffff; --text:#d6336c; --accent:#ffccd5;
+    }
+    *{ box-sizing: border-box }
+    body{
+      margin:0; min-height:100vh; display:grid; place-items:center;
+      font-family:'Tajawal', system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Kufi Arabic", sans-serif;
+      background:
+        radial-gradient(circle at 20% 20%, #ffe3ec, transparent 40%),
+        radial-gradient(circle at 80% 30%, #fceef5, transparent 40%),
+        var(--bg);
+    }
+    .card{
+      background:var(--card); border-radius:28px; padding:56px 64px; text-align:center;
+      box-shadow:0 12px 36px rgba(0,0,0,.08); position:relative; overflow:hidden;
+    }
+    .card::before,.card::after{ content:"❤"; position:absolute; font-size:64px; opacity:.08 }
+    .card::before{ top:10px; left:16px }
+    .card::after{ bottom:8px; right:18px }
+    h1{
+      margin:0 0 12px; font-size:clamp(44px,7vw,80px); line-height:1.1; letter-spacing:.5px;
+      color:var(--text);
+    }
+    hr{ border:none; height:2px; width:90px; background:var(--accent); margin:14px auto 0; border-radius:2px }
+    @media (prefers-color-scheme: dark){
+      :root{ --bg:#140a10; --card:#1e0f16; --text:#ffb3c1; --accent:#864b57 }
+      body{
+        background:
+          radial-gradient(circle at 20% 20%, #3a1f2b, transparent 40%),
+          radial-gradient(circle at 80% 30%, #2a141c, transparent 40%),
+          var(--bg);
+      }
+      .card{ box-shadow:0 16px 44px rgba(0,0,0,.36) }
+    }
+  </style>
+</head>
+<body>
+  <main class="card" aria-label="رسالة">
+    <h1>أحبك سارة</h1>
+    <hr />
+  </main>
+</body>
+</html>
