@@ -33,6 +33,10 @@
     .counter{
       margin-top:28px; font-size:clamp(32px,5vw,60px); color:#a61e4d; font-weight:700;
       height:70px; display:flex; align-items:center; justify-content:center;
+      transition:transform 0.2s ease;
+    }
+    .animate{
+      transform:scale(1.3);
     }
     @media (prefers-color-scheme: dark){
       :root{ --bg:#140a10; --card:#1e0f16; --text:#ffb3c1; --accent:#864b57 }
@@ -55,11 +59,16 @@
   <script>
     let num = 1;
     const counter = document.getElementById('counter');
-    setInterval(() => {
+    const interval = setInterval(() => {
       num++;
-      if(num > 12) num = 1;
+      if(num > 12){
+        clearInterval(interval);
+        return;
+      }
       counter.textContent = num;
-    }, 1000);
+      counter.classList.add('animate');
+      setTimeout(()=>counter.classList.remove('animate'),150);
+    }, 400); // أسرع (كل 0.4 ثانية)
   </script>
 </body>
 </html>
