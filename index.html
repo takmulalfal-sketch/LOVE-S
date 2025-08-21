@@ -29,14 +29,10 @@
       margin:0 0 12px; font-size:clamp(44px,7vw,80px); line-height:1.1; letter-spacing:.5px;
       color:var(--text);
     }
-    hr{ border:none; height:2px; width:90px; background:var(--accent); margin:14px auto 20px; border-radius:2px }
+    hr{ border:none; height:2px; width:90px; background:var(--accent); margin:14px auto 0; border-radius:2px }
     .counter{
-      display:flex; justify-content:center; gap:10px; flex-wrap:wrap;
-      font-size:1.5rem; color:var(--text); font-weight:bold;
-    }
-    .counter span{
-      background:var(--accent); padding:10px 14px; border-radius:12px;
-      min-width:40px; text-align:center;
+      margin-top:28px; font-size:clamp(32px,5vw,60px); color:#a61e4d; font-weight:700;
+      height:70px; display:flex; align-items:center; justify-content:center;
     }
     @media (prefers-color-scheme: dark){
       :root{ --bg:#140a10; --card:#1e0f16; --text:#ffb3c1; --accent:#864b57 }
@@ -48,50 +44,22 @@
       }
       .card{ box-shadow:0 16px 44px rgba(0,0,0,.36) }
     }
-      .meter{ margin-top:28px }
-    .meter-title{ margin:0; font-size:18px; color:#8a2946; opacity:.9 }
-    .counter{ margin-top:14px; display:flex; flex-wrap:wrap; gap:10px; justify-content:center }
-    .dot{ width:50px; height:50px; border-radius:50%; display:grid; place-items:center; color:#fff; font-weight:700; box-shadow:0 6px 16px rgba(214,51,108,.25); user-select:none; transition:transform .2s ease }
-    .dot:hover{ transform:translateY(-4px) }
-    /* تدرّج من وردي فاتح إلى أحمر داكن يرمز لزيادة الدم */
-    .counter .dot:nth-child(1){ background:hsl(350,85%,85%) }
-    .counter .dot:nth-child(2){ background:hsl(350,85%,80%) }
-    .counter .dot:nth-child(3){ background:hsl(350,85%,75%) }
-    .counter .dot:nth-child(4){ background:hsl(350,85%,70%) }
-    .counter .dot:nth-child(5){ background:hsl(350,85%,65%) }
-    .counter .dot:nth-child(6){ background:hsl(350,85%,60%) }
-    .counter .dot:nth-child(7){ background:hsl(350,85%,55%) }
-    .counter .dot:nth-child(8){ background:hsl(350,85%,50%) }
-    .counter .dot:nth-child(9){ background:hsl(350,85%,46%) }
-    .counter .dot:nth-child(10){ background:hsl(350,85%,42%) }
-    .counter .dot:nth-child(11){ background:hsl(350,85%,38%) }
-    .counter .dot:nth-child(12){ background:hsl(350,85%,34%) }
   </style>
 </head>
 <body>
   <main class="card" aria-label="رسالة">
     <h1>أحبك سارة</h1>
     <hr />
-    <section class="meter" aria-label="عداد من 1 إلى 12 – رمز لزيادة الدم">
-      <p class="meter-title">العدّاد</p>
-      <div class="counter" role="list">
-        <span class="dot" role="listitem" aria-label="1">1</span>
-        <span class="dot" role="listitem" aria-label="2">2</span>
-        <span class="dot" role="listitem" aria-label="3">3</span>
-        <span class="dot" role="listitem" aria-label="4">4</span>
-        <span class="dot" role="listitem" aria-label="5">5</span>
-        <span class="dot" role="listitem" aria-label="6">6</span>
-        <span class="dot" role="listitem" aria-label="7">7</span>
-        <span class="dot" role="listitem" aria-label="8">8</span>
-        <span class="dot" role="listitem" aria-label="9">9</span>
-        <span class="dot" role="listitem" aria-label="10">10</span>
-        <span class="dot" role="listitem" aria-label="11">11</span>
-        <span class="dot" role="listitem" aria-label="12">12</span>
-      </div>
-    </section>
-    <div class="counter">
-      <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span>
-    </div>
+    <div class="counter" id="counter">1</div>
   </main>
+  <script>
+    let num = 1;
+    const counter = document.getElementById('counter');
+    setInterval(() => {
+      num++;
+      if(num > 12) num = 1;
+      counter.textContent = num;
+    }, 1000);
+  </script>
 </body>
 </html>
